@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+  fixtures :products
+
   test "product attributes may not be empty" do
     product = Product.new
     assert product.invalid?
@@ -51,22 +53,16 @@ class ProductTest < ActiveSupport::TestCase
     end
   end
 
-  # NEED TO USE FIXTURES TO TEST UNIQUENESS
-  # test "product title must be unique" do
-  #   product1 = Product.new(title: "Title",
-  #                         description: "An item",
-  #                         image_url: "somefile.jpg",
-  #                         price: 0.01)
-  #   product2 = Product.new(title: "Title",
-  #                         description: "An item, really not the first",
-  #                         image_url: "someotherfile.jpg",
-  #                         price: 100.01)
+  test "product title must be unique" do
+    product = Product.new(title: products(:ruby).title,
+                          description: "An item",
+                          image_url: "somefile.jpg",
+                          price: 0.01)
 
-  #   assert product1.valid?
-  #   assert product2.invalid?
-  #   # assert_equal ["has already been taken"],
-  #                 # product2.errors[:title]
-  # end
+    assert product.invalid?
+    assert_equal ["has already been taken"],
+                  product.errors[:title]
+  end
 
   test "product image_url must have proper extension" do
     product = Product.new(title: "Title",
