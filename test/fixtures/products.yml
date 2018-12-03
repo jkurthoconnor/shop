@@ -1,20 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
+  title: MyString is a Title
+  description: MyText as a description should be longer.
   image_url: lorem.jpg
   price: 9.99
 
 two:
-  title: MyString
-  description: MyText
+  title: MyString is a Title
+  description: MyText as a description should be longer.
   image_url: lorem.jpg
   price: 9.99
 
 ruby:
   title: Programming Ruby 1.9
   description:
-    Ruby is a fast growing language.
+    Ruby is a fast growing language. You should learn it!
   price: 49.50
   image_url: ruby.jpg
