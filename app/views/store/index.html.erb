@@ -2,7 +2,9 @@
   <aside id="notice"><%= notice %></aside>
 <% end %>
 
-<h1>The Shop is Open!</h1>
+<h1>The Shop is Open</h1>
+
+<p>You've visited <%= pluralize(@counter, 'time') %> without adding to your cart</p>
 
 <ul class="catalog">
   <% cache @products do %>
