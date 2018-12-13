@@ -68,7 +68,12 @@ class CartsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
-      @cart = Cart.find(params[:id])
+      if session[:cart_id] != params[:id].to_i
+        logger.error "Unauthorized Attempt to access cart #{params[:id]}"
+        redirect_to store_index_url, notice: 'Invalid Request'
+      else
+        @cart = Cart.find(params[:id])
+      end
     end
 
     def invalid_cart
