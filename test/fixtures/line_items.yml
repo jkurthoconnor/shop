@@ -3,7 +3,9 @@
 one:
   product: two
   cart: one
+  price: 0.46e2
 
 two:
   product: two
   cart: two
+  price: 0.26e2

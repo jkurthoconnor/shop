@@ -1,13 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Product:</strong>
-  <%= @line_item.product %>
+  <strong>Line Item</strong>
+  <ul>
+    <% @line_item.attributes.each do |pair|  %>
+      <li><%= pair %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Product</strong>
+  <ul>
+    <% @line_item.product.attributes.each do |pair| %>
+      <li><%= pair %></li>
+    <% end %>
+  </ul>
 </p>
 
 <p>
   <strong>Cart:</strong>
-  <%= @line_item.cart %>
+  <ul>
+    <% @line_item.cart.attributes.each do |pair| %>
+      <li><%= pair %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <ul>
+    <strong>Params:</strong>
+      <li><%= params %></li>
+    <strong>Session:</strong>
+      <li><%= session %></li>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_line_item_path(@line_item) %> |
