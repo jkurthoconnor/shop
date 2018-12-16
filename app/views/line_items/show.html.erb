@@ -32,7 +32,10 @@
     <strong>Params:</strong>
       <li><%= params %></li>
     <strong>Session:</strong>
-      <li><%= session %></li>
+    <li style="font-size:20px;line-height:1.5"><%= session.inspect %></li>
+      <li><%= session[:cart_id] %></li>
+      <strong style="font-size:20px">Request:</strong>
+      <li style="font-size:20px;line-height:1.5"><%= request.inspect %></li>
   </ul>
 </p>
 
