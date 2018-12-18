@@ -1,4 +1,4 @@
-<% if line_item.eql?(@current_item) %>
+<% if line_item.eql?(@updated_item) %>
 <tr class="changed-item-highlight">
 <% else %>
 <tr>
@@ -9,6 +9,8 @@
   <td><%= button_to 'Remove Item',
                      line_item,
                      method: :delete,
-                     data: {confirm: 'Are you sure?'}%>
+                     data: {confirm: 'Are you sure?'},
+                     remote: true
+                   %>
   </td>
 </tr>
