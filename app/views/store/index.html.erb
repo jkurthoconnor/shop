@@ -20,7 +20,7 @@
             %>
 
           <% if product.eql?(@updated_item) %>
-            <h2 class="line-item-highlight"><%= product.title %></h2>
+            <h2 class="changed-item-highlight"><%= product.title %></h2>
           <% else %>
             <h2><%= product.title %></h2>
           <% end %>
