@@ -19,7 +19,12 @@
                       remote: true
             %>
 
-          <h2><%= product.title %></h2>
+          <% if product.eql?(@updated_item) %>
+            <h2 class="line-item-highlight"><%= product.title %></h2>
+          <% else %>
+            <h2><%= product.title %></h2>
+          <% end %>
+
           <p>
             <%= sanitize(product.description) %>
           </p>
