@@ -3,9 +3,9 @@
 one:
   product: two
   cart: one
-  price: 0.46e2
 
 two:
-  product: two
+  product: ruby
+  order: one
   cart: two
   price: 0.46e2
