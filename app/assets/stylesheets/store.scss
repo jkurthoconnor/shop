@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+$hover-background-color: #992;
+$hover-text-color: #000;
+$mid-background-color: #282;
 
 .store {
   max-width: 80em;
@@ -35,7 +38,7 @@
         display: inline;
       }
       input[type="submit"] {
-        background-color: #282;
+        background-color: $mid-background-color;
         border-radius: 0.354em;
         border: solid thin #141;
         color: #fff;
@@ -44,7 +47,8 @@
         margin-left: 1em;
       }
       input[type="submit"]:hover {
-        background-color: #141;
+        background-color: $hover-background-color;
+        color: $hover-text-color;
       }
     }
   }

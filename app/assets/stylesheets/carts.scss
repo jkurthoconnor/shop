@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$dark-background-color: #141;
+$highlight-background-color: #8f8;
+$hover-background-color: #992;
+$hover-text-color: #000;
+$mid-background-color: #282;
+
 .carts {
   table {
     border-collapse: collapse;
@@ -10,7 +16,7 @@
     padding: 0.5em;
   }
   td.quantity {
-    white-spced: nowrap;
+    white-space: nowrap;
   }
   td.quantity::after {
     content: " x";
@@ -32,15 +38,16 @@
     }
   }
   input[type="submit"] {
-    background-color: #881;
+    background-color: $mid-background-color;
     border-radius: 0.254em;
     border: solid thin #441;
-    color: white;
+    color: #fff;
     font-size: 1em;
     padding: 0.254em 1em;
   }
   input[type="submit"]:hover {
-    background-color: #992;
+    background-color: $hover-background-color;
+    color: $hover-text-color;
   }
 }
 
