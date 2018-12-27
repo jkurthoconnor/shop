@@ -19,7 +19,8 @@ $highlight-background-color: #8f8;
 $hover-background-color: #992;
 $hover-text-color: #000;
 $mid-background-color: #282;
-;
+$disabled-input-color: #90aa90;
+
 body {
   margin: 0;
   padding: 0;
@@ -125,6 +126,10 @@ header.main {
 
 .changed-item-highlight {
   animation: changed-item-highlight 1s;
+}
+
+.button_to input[disabled] {
+  background-color: $disabled-input-color;
 }
 
 .shop_form {

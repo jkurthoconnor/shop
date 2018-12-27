@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @checkout_in_progress = true
   end
 
   # GET /orders/1/edit
