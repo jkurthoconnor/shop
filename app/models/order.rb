@@ -6,7 +6,6 @@ class Order < ApplicationRecord
   validates :email, presence: true, format: { with: /\w+.*@\w+\./}
   validates :pay_type, presence: true,
              inclusion: ["Check", "Credit card", "Purchase order"]
-             # inclusion: pay_types.keys
 
   enum pay_type: {
     "Check"          => 0,
