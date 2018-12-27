@@ -74,14 +74,17 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1/who_bought.atom
+  # GET /products/1/who_bought.html
+  # GET /products/1/who_bought.json
   def who_bought
     @product = Product.find(params[:id])
     @latest_order = @product.orders.order(:updated_at).last
 
     if stale?(@latest_order)
       respond_to do |format|
-        format.html
         format.atom
+        format.html
+        format.json { render json: @product.to_json(include: :orders) }
       end
     end
   end
