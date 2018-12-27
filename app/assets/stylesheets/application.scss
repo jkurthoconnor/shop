@@ -128,8 +128,10 @@ header.main {
   animation: changed-item-highlight 1s;
 }
 
-.button_to input[disabled] {
+.button_to input[disabled],
+.button_to input[disabled]:hover {
   background-color: $disabled-input-color;
+  color: #fff;
 }
 
 .shop_form {
