@@ -86,7 +86,7 @@ class OrdersController < ApplicationController
       @checkout_in_progress = true
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # params whitelisting
     def order_params
       params.require(:order).permit(:name, :address, :email, :pay_type)
     end
