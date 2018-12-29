@@ -32,4 +32,42 @@ class CartsTest < ApplicationSystemTestCase
     assert_no_selector '#cart tbody tr:first-child.changed-item-highlight'
     assert_selector '#cart tbody tr:last-child.changed-item-highlight'
   end
+
+  test "Removing item from line item with count > 1 highlights changed item" do
+
+    visit store_index_url
+
+    within('.catalog li:first-child') do
+      click_on 'Add to Cart'
+      click_on 'Add to Cart'
+      click_on 'Add to Cart'
+    end
+
+    within('.catalog li:last-child') do
+      click_on 'Add to Cart'
+      click_on 'Add to Cart'
+      click_on 'Add to Cart'
+    end
+
+    assert_selector '#cart tbody tr:last-child.changed-item-highlight'
+    assert_no_selector '#cart tbody tr:first-child.changed-item-highlight'
+
+    within('#cart tbody > tr:first-child') do
+      accept_alert do
+        click_on 'Remove Item'
+      end
+    end
+
+    assert_selector('#cart tbody tr:first-child.changed-item-highlight')
+    assert_no_selector '#cart tbody tr:last-child.changed-item-highlight'
+
+    within('#cart tbody > tr:last-child') do
+      accept_alert do
+        click_on 'Remove Item'
+      end
+    end
+
+    assert_selector('#cart tbody tr:last-child.changed-item-highlight')
+    assert_no_selector '#cart tbody tr:first-child.changed-item-highlight'
+  end
 end
