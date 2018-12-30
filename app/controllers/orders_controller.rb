@@ -36,6 +36,8 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
+
         format.html { redirect_to store_index_url,
                       notice: 'Order was placed. Thank you.' }
         format.json { render :show, status: :created, location: @order }
@@ -93,11 +95,11 @@ class OrdersController < ApplicationController
 
     def pay_type_params
       case order_params[:pay_type]
-      when "Credit Card"
+      when "Credit card"
         params.require(:order).permit(:credit_card_number, :expiration_date)
       when "Check"
         params.require(:order).permit(:routing_number, :account_number)
-      when "Purchase Order"
+      when "Purchase order"
         params.require(:order).permit(:po_number)
       else
         {}
