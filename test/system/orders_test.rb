@@ -74,7 +74,6 @@ class OrdersTest < ApplicationSystemTestCase
     visit store_index_url
 
     find('.catalog li:first-child').click_on 'Add to Cart'
-    find('.catalog li:last-child').click_on 'Add to Cart'
     click_on 'Checkout'
 
     fill_in 'order_name', with: 'Some Guy'
@@ -96,6 +95,6 @@ class OrdersTest < ApplicationSystemTestCase
     assert_equal '12345 Big Court', order.address
     assert_equal 'mrguy@service.com', order.email
     assert_equal 'Credit card', order.pay_type
-    assert_equal 2, order.line_items.size
+    assert_equal 1, order.line_items.size
   end
 end

@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'integration/test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "prompts for login" do
@@ -7,6 +8,8 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should login" do
+    delete logout_url
+
     test_user = users(:one)
     post login_url, params: {name: test_user.name, password: 'secret'}
     assert_redirected_to admin_url
@@ -14,7 +17,9 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should fail login" do
-    test_user = users(:two)
+    delete logout_url
+
+    test_user = users(:one)
     post login_url, params: {name: 'fat-finger typos', password: 'secret'}
     assert_redirected_to login_url
     assert_nil session[:user_id]

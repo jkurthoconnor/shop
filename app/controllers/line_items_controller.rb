@@ -1,6 +1,8 @@
 class LineItemsController < ApplicationController
   include CurrentCart
   include Counter
+
+  skip_before_action :confirm_authorization, only: [:create, :destroy]
   before_action :set_cart, only: [:create, :update, :destroy]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
   after_action :reset_counter, only: [:create]

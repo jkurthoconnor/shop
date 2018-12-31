@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :confirm_authorization
+
   def new
   end
 
