@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   private
   def confirm_authorization
-    if !(User.find(session[:user_id]))
+    if !( session[:user_id] && User.find(session[:user_id]))
       redirect_to login_url, notice: "You must be logged in."
     end
   end

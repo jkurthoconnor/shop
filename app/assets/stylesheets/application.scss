@@ -86,6 +86,25 @@ header.main {
         }
       }
     }
+    .logged_in_nav {
+      display: block;
+      border-top: solid thin $light-text-color;
+      padding: 0.354em 0;
+      margin-top: 0.354em;
+      input[type="submit"] {
+        background: none;
+        border: none;
+        color: $light-text-color;
+        font-size: 1em;
+        letter-spacing: 0.354em;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+      }
+      input[type="submit"]:hover {
+        color: $hover-text-color;
+      }
+    }
   }
   main {
     padding: 0.5em;
