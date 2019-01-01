@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
   skip_before_action :confirm_authorization
 
   def new
+    if !User.first
+      redirect_to new_user_path
+    end
   end
 
   def create
