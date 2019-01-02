@@ -12,20 +12,28 @@
         </ul>
       </div>
     <% end %>
-
+    
     <h2>Enter Registration Details</h2>
     <div class="field">
       <%= form.label :name, 'Name:' %>
       <%= form.text_field :name, id: :user_name, size: 40 %>
     </div>
 
+    <% if user.id %>
+      <div class="field">
+        <%= form.label :current_password, 'Current Password' %>
+        <%= form.password_field :current_password,
+          size: 40 %>
+      </div>
+    <% end %>
+
     <div class="field">
-      <%= form.label :password, 'Password:' %>
+      <%= form.label :password, 'New Password:' %>
       <%= form.password_field :password, id: :user_password, size: 40 %>
     </div>
 
     <div class="field">
-      <%= form.label :password_confirmation, 'Confirm Password:' %>
+      <%= form.label :password_confirmation, 'Confirm New Password:' %>
       <%= form.password_field :password_confirmation,
         id: :user_password_confirmation,
         size: 40 %>

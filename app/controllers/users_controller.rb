@@ -41,6 +41,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    unless @user.try(:authenticate, params[:user][:current_password])
+      redirect_to users_url, notice: "Failed to confirm password for #{@user.name}"
+      return
+    end
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to users_url,
